@@ -10,3 +10,7 @@ body {
     color-scheme: dark;
   }
 }
+
+canvas{
+  font-family: Arial, Helvetica, sans-serif;
+}

@@ -25,11 +25,11 @@ export default function Index() {
     O.fillColor("#EEEEDD");
     const dimension = Math.min(O.width, O.height);
     O.roundedRectangle(0, 0, O.width, dimension * 0.0125, O.height);
-    O.textFont("Inter");
+    O.textFont("Arial");
     O.textSize(dimension * 0.225);
     O.fillColor("#000");
     O.alignText("center", "middle");
-    O.text("Klint", O.width * 0.45, O.height * 0.55);
+    O.text("Klint", O.width * 0.5, O.height * 0.55);
     O.textSize(O.width * 0.0175);
     O.alignText("left");
     O.text("npm i @shopify/klint", dimension * 0.045, dimension * 0.045);
@@ -54,6 +54,7 @@ export default function Index() {
     K.extend("Easing", new Easing(K));
     K.extend("Color", new Color());
     K.setRectOrigin("center");
+
     K.alignText("center", "middle");
     K.setImageOrigin("center");
     K.noStroke();
@@ -76,7 +77,11 @@ export default function Index() {
       return 1 - Math.pow((1 - t) * 2, power) / 2;
     }
   }
-
+  const setup = (K: KlintContext) => {
+    K.textFont("sans-serif");
+    K.computeFont();
+    // console.log(P.get("counter"));
+  };
   const draw = (K: KlintContexts) => {
     const { Color } = K;
     K.background(Color.golden);
@@ -188,7 +193,12 @@ export default function Index() {
   return (
     <div className="main  flex h-screen items-center justify-center">
       <div className="container overflow-hidden rounded-xl w-[80%] h-[80%]">
-        <Klint context={context} preload={preload} draw={draw}></Klint>
+        <Klint
+          context={context}
+          preload={preload}
+          setup={setup}
+          draw={draw}
+        ></Klint>
       </div>
     </div>
   );
