@@ -24,7 +24,6 @@ export default function Index() {
     O.noStroke();
     O.fillColor("#EEEEDD");
     const dimension = Math.min(O.width, O.height);
-
     O.roundedRectangle(0, 0, O.width, dimension * 0.0125, O.height);
     O.textFont("Inter");
     O.textSize(dimension * 0.225);
@@ -40,7 +39,7 @@ export default function Index() {
       O.height - dimension * 0.045
     );
     O.alignText("right");
-    O.text("v0.0.6", O.width - dimension * 0.045, dimension * 0.045);
+    O.text("v0.0.9", O.width - dimension * 0.045, dimension * 0.045);
     O.text(
       "#creative-coding",
       O.width - dimension * 0.045,
@@ -79,7 +78,7 @@ export default function Index() {
   }
 
   const draw = (K: KlintContexts) => {
-    const { Easing, Color } = K;
+    const { Color } = K;
     K.background(Color.golden);
 
     const w = { min: K.width / 8, max: K.width };
